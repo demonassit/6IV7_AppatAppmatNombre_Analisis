@@ -1,1 +1,4 @@
 Vamos a crear un primer repositorio para manejo de versiones
+
+Ahora si ya me pueden entregar la tarea de los códigos de python que había dejado 
+desde hace como 2 semanas atrás.
