@@ -6,7 +6,7 @@ const cors = require('cors');
 //es un modulo que se encarga de crear accesos a las rutas de los metodos 
 //esos metodos son las rutas de acceso get, post, put, delete, etc
 //como vamos a utilizar un jwt para poder acceder por medio de una autenticacion 
-const authRouters = require('./routers/auth');
+const authRouters = require('./routes/auth');
 
 //necesitaremos los elementos de mi variable
 require('dotenv').config();
