@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo de JWT</title>
+    <title>Registro</title>
 </head>
 <body>
-
-    <h2>Iniciar Sesión</h2>
-    <form action="" id="loginform" >
-        <input type="email" id="email" placeholder="Correo" required>
-        <input type="password" id="password" placeholder="Contraseña" required>
-        <button type="submit" >Iniciar Sesion</button>
+    <h2>Formulario de Registro</h2>
+    <form action="" id="registerform">
+        <input type="email"  id="email" placeholder="Correo" required>
+        <input type="password"  id="password" placeholder="Ingrese la contrasena" required>
+        <button type="submit" >Registrarse</button>
     </form>
-
-    <p>No tienes cuenta da clic <a href="./register.html"> aqui </a></p>
+    <p>Ya tienes una cuenta <a href="./index.html">incia sesion</a></p>
 
     <script>
-        document.getElementById('loginform').addEventListener('submit', async (e) => {
+        document.getElementById('registerform').addEventListener('submit', async(e) => {
             e.preventDefault();
-            //variables
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             try{
-                const res = await fetch('http://localhost:3000/api/auth/login', {
+                const res = await fetch('http://localhost:3000/api/auth/register', {
                     //los encabezados de la respuesta
                     method : 'POST',
                     headers : {'Content-Type' : 'application/json'},
@@ -32,18 +29,18 @@
 
                 const data = await res.json();
                 if(res.ok){
-                    alert('Bienvenido');
-                    localStorage.setItem('token', data.token);
+                    alert('usuario registrado');
+                    window.location.href = 'index.html'
                 }else{
-                    alert(data);
+                    alert('error al registrar');
                 }
 
             }catch(err){
-                console.log('Error en la peticion del login', err);
+                console.log('Error en la peticion del lregistro', err);
                 alert('Error en la red o el servicio');
             }
-        }) 
+        })
+        
     </script>
-    
 </body>
 </html>
