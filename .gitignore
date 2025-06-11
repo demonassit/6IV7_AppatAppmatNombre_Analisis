@@ -2,3 +2,11 @@
 /Ciberseguridad/03DES/build/
 /Ciberseguridad/04AES/nbproject/private/
 /Ciberseguridad/04AES/build/
+
+
+#node modules
+node_modules/
+
+
+#logs
+npm-debug.log*
