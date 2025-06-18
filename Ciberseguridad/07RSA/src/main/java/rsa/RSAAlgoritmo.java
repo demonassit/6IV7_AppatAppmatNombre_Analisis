@@ -65,7 +65,48 @@ public class RSAAlgoritmo {
     }
     
     ///programar el metodo para cifrar
-    
+    public BigInteger[] cifrar(String mensaje){
+        
+        int i;
+        byte[] temp = new byte[1];
+        byte[] digitos = mensaje.getBytes();
+        //formula es C = M **e mod(n)
+        
+        BigInteger[] bigdigitos = new BigInteger[digitos.length];
+        
+        for(i = 0; i < bigdigitos.length; i++){
+            temp[0] = digitos[i];
+            bigdigitos[i] = new BigInteger(temp);
+        }
+        
+        //aplicamos la formula
+        BigInteger[] cifrado = new BigInteger[bigdigitos.length];
+        
+        for(i = 0; i < bigdigitos.length; i++){
+            cifrado[i] = bigdigitos[i].modPow(e, n);
+        }
+        
+        return cifrado;
+        
+    }
     
     //metodo para descifrar
+    public String descifrar(BigInteger[] cifrado){
+        BigInteger[] descifrar = new BigInteger[cifrado.length];
+        //aplico la formula para descifrar
+        for(int i = 0; i < descifrar.length; i++){
+            // M = C ** d mod(n)
+            descifrar[i] = cifrado[i].modPow(d, n);
+        }
+        
+        //crear el nuevo arreglo
+        char[] charArray = new char[descifrar.length]; 
+        
+        for(int i = 0; i < charArray.length; i++){
+            charArray[i] = (char)(descifrar[i].intValue());
+        }
+        
+        return (new String(charArray));
+    }
+    
 }
